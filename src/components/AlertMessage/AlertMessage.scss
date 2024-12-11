@@ -1,0 +1,21 @@
+.alert-message {
+   margin-block: 12px;
+   padding: 8px 12px;
+   background: #e6f4ff;
+   border: 1px solid #91caff;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   border-radius: 8px;
+   i {
+     color: #1677ff;
+     margin-right: 8px;
+   }
+   a {
+     margin-left: 2px;
+     color: #0050b3;
+     &:hover {
+       opacity: 0.8;
+     }
+   }
+ }
