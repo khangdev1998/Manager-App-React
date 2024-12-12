@@ -2,7 +2,7 @@ import Table from "../components/Table/Table";
 import Tool from "../components/Tool/Tool";
 import AlertMessage from "../components/AlertMessage/AlertMessage";
 
-const HomePage = () => {
+const ProductPage = () => {
   return (
     <>
       <Tool />
@@ -12,4 +12,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ProductPage;

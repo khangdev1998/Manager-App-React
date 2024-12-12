@@ -1,19 +1,22 @@
+import { useState } from "react";
 import ModalEditor from "../ModalEditor/ModalEditor";
 import "./Tool.scss";
 
 const Tool = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+
   return (
     <div className="tools">
       <div className="d-flex align-items-stretch flex-wrap gap-2">
         <button
+          onClick={() => setShow(true)}
           className="tools-add"
           type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
         >
           <i className="bi bi-plus-lg"></i>
         </button>
-        <ModalEditor />
+        <ModalEditor show={show} handleClose={handleClose} />
         <button className="tools-button">
           <svg
             viewBox="64 64 896 896"
