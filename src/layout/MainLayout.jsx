@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
       <Sidebar />
       <div className="d-flex flex-column w-100 px-3">
         <Header />
-        <main className="main">
+        <main className="main pb-3">
           {children}
         </main>
       </div>
