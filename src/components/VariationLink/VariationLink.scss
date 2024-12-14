@@ -1,0 +1,23 @@
+.variation-link {
+   display: flex;
+   align-items: center;
+   a {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     padding: 10px 15px;
+     border-bottom: 2px solid transparent;
+     color: rgb(16, 24, 40);
+
+     svg {
+       width: 17px;
+     }
+     span {
+       font-size: 16px;
+     }
+     &.active {
+       color: rgb(0, 80, 179);
+       border-color: #096dd9;
+     }
+   }
+ }

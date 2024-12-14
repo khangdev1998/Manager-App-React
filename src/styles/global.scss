@@ -12,6 +12,7 @@ body {
   font-size: 14px;
   line-height: 22px;
   background-color: #eaecf0;
+  position: relative;
 }
 html {
   -webkit-text-size-adjust: 100%;
@@ -73,8 +74,6 @@ table {
   color: $light-color;
 }
 
-@include maxWidth(1199px) {
-  #wrapper > div:not(.message-mobile) {
-    display: none !important;
-  }
+@include maxWidth(1023px) {
+
 }

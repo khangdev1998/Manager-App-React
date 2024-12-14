@@ -2,12 +2,21 @@ import { useState } from "react";
 import "./Sidebar.scss";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Sidebar = () => {
+const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
   const [isToggle, setToggle] = useState(true);
 
+  const handleCloseSidebar = () => {
+    closeSidebar(false);
+  };
+
   return (
-    <div className="sidebar">
+    <div
+      className={clsx("sidebar", {
+        show: isSidebarOpen,
+      })}
+    >
       <div className="sidebar-logo">
         <span>M</span>
         <h4>Manager</h4>
@@ -49,6 +58,7 @@ const Sidebar = () => {
             >
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/"
                   className={({ isActive }) => (isActive ? "active" : "")}
                   href="#!"
@@ -58,6 +68,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/inventory"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -66,6 +77,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/import"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -74,6 +86,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/export"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -82,6 +95,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/defective"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -90,6 +104,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/transfer"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -98,6 +113,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
+                onClick={handleCloseSidebar}
                   to="/history"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -110,18 +126,23 @@ const Sidebar = () => {
       </div>
 
       <div className="sidebar-footer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-            className="anticon"
-          >
-            <path d="M200,40H56A16,16,0,0,0,40,56V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,80H136V56h64ZM120,56v64H56V56ZM56,136h64v64H56Zm144,64H136V136h64v64Z"></path>
-          </svg>
-          <span>Bảng điều khiển</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+          className="anticon"
+        >
+          <path d="M200,40H56A16,16,0,0,0,40,56V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,80H136V56h64ZM120,56v64H56V56ZM56,136h64v64H56Zm144,64H136V136h64v64Z"></path>
+        </svg>
+        <span>Bảng điều khiển</span>
       </div>
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  isSidebarOpen: PropTypes.bool,
+  closeSidebar: PropTypes.func,
 };
 
 export default Sidebar;
