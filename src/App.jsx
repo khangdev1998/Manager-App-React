@@ -31,17 +31,62 @@ function App() {
             path="/inventory"
             element={
               <VariationLinkProvider showVariationLink={false}>
-                <MainLayout>
+                <MainLayout namePage={"Kiểm hàng"}>
                   <InventoryCheckPage />
                 </MainLayout>
               </VariationLinkProvider>
             }
           />
-          <Route path="/import" element={<ImportPage />} />
-          <Route path="/export" element={<ExportPage />} />
-          <Route path="/defective" element={<DefectiveGoodsPage />} />
-          <Route path="/transfer" element={<WarehouseTransferPage />} />
-          <Route path="/history" element={<ImportExportHistoryPage />} />
+          <Route
+            path="/import"
+            element={
+              <VariationLinkProvider showVariationLink={false}>
+                <MainLayout namePage={"Nhập hàng"}>
+                  <ImportPage />
+                </MainLayout>
+              </VariationLinkProvider>
+            }
+          />
+          <Route
+            path="/export"
+            element={
+              <VariationLinkProvider showVariationLink={false}>
+                <MainLayout namePage={"Xuất hàng"}>
+                  <ExportPage />
+                </MainLayout>
+              </VariationLinkProvider>
+            }
+          />
+          <Route
+            path="/defective"
+            element={
+              <VariationLinkProvider showVariationLink={false}>
+                <MainLayout namePage={"Hàng lỗi"}>
+                  <DefectiveGoodsPage />
+                </MainLayout>
+              </VariationLinkProvider>
+            }
+          />
+          <Route
+            path="/transfer"
+            element={
+              <VariationLinkProvider showVariationLink={false}>
+                <MainLayout namePage={"Chuyển kho"}>
+                  <WarehouseTransferPage />
+                </MainLayout>
+              </VariationLinkProvider>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <VariationLinkProvider showVariationLink={false}>
+                <MainLayout namePage={"Lịch sử xuất nhập"}>
+                  <ImportExportHistoryPage />
+                </MainLayout>
+              </VariationLinkProvider>
+            }
+          />
         </Routes>
       </Suspense>
     </Router>

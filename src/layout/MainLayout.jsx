@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, namePage }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -32,7 +32,7 @@ const MainLayout = ({ children }) => {
       <ButtonSidebar handleOnClick={toggleSidebar} />
       <Overlay onClick={toggleSidebar} isVisible={isSidebarOpen} />
       <div className="d-flex flex-column w-100 px-3">
-        <Header />
+        <Header namePage={namePage} />
         <main className="main pb-3">{children}</main>
       </div>
     </div>
@@ -41,6 +41,7 @@ const MainLayout = ({ children }) => {
 
 MainLayout.propTypes = {
   children: PropTypes.node,
+  namePage: PropTypes.string,
 };
 
 export default MainLayout;

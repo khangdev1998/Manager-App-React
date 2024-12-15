@@ -2,13 +2,14 @@ import "./Header.scss";
 import VariationLink from "../VariationLink/VariationLink";
 import { useVariationLink } from "../../context";
 import TitlePage from "../../TitlePage/TitlePage";
+import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = ({ namePage }) => {
   const showVariationLink = useVariationLink();
   return (
     <div className="header">
-      {showVariationLink && <VariationLink />}
-      {!showVariationLink && <TitlePage namePage={"Kiểm hàng"} />}
+      {showVariationLink && <VariationLink useIcon />}
+      {!showVariationLink && <TitlePage namePage={namePage} />}
       <div className="search">
         <div className="search-dropdown">
           Tất cả
@@ -62,6 +63,10 @@ const Header = () => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  namePage: PropTypes.string,
 };
 
 export default Header;
